@@ -8,6 +8,7 @@ export default function App() {
     <BrowserRouter>
       <div>
         <Header />
+
         <MarketingApp />
       </div>
     </BrowserRouter>
