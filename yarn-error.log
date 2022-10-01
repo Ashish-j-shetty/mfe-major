@@ -1,0 +1,30 @@
+Arguments: 
+  /Users/ashishshetty/.nvm/versions/node/v14.18.1/bin/node /usr/local/Cellar/yarn/1.22.18/libexec/bin/yarn.js add /
+
+PATH: 
+  /Users/ashishshetty/.nvm/versions/node/v14.18.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ashishshetty/.nvm/versions/node/v14.18.1/bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  14.18.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: unsure how to copy this: /dev/afsc_type5
+      at /usr/local/Cellar/yarn/1.22.18/libexec/lib/cli.js:1089:17
+      at Generator.throw (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.18/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.18/libexec/lib/cli.js:323:13
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
