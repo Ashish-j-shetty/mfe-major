@@ -5,7 +5,7 @@ import App from "./App";
 
 //? mount funtion to start up the app
 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
@@ -15,7 +15,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   if (onNavigate) {
     history.listen(onNavigate);
   }
-  ReactDom.render(<App history={history} />, el);
+  ReactDom.render(<App onSignIn={onSignIn} history={history} />, el);
 
   //? to have some line of communication from container to this application we provide some function that the container app can call.
   return {
@@ -35,7 +35,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 //? if we are in development and in isolation call mount function immediately
 
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
   if (devRoot) {
     //? {} to satisfy the 2nd argument.
     mount(devRoot, { defaultHistory: createBrowserHistory() });

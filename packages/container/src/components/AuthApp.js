@@ -1,20 +1,16 @@
-import React, { useRef, useEffect } from "react";
-import { mount as mountMarketing } from "marketing/MarketingApp";
+import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { mount as mountAuth } from "auth/AuthApp";
 
-export default function MarketingApp() {
+export default function AuthApp({ onSignIn }) {
   const ref = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
-    //? onParentNavigate sent from the marketing mfe.
-    const { onParentNavigate } = mountMarketing(ref.current, {
+    const { onParentNavigate } = mountAuth(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: (location) => {
         const { pathname: nextPathname } = location;
-
-        //?  re routing as parent chagnes go down to child anc child changes go up to parent this can easily cause infinite re routing ,
-        //?  to stop that we can need to do this check.
 
         const { pathname } = history.location;
 
@@ -22,10 +18,10 @@ export default function MarketingApp() {
           history.push(nextPathname);
         }
       },
+      onSignIn,
     });
 
     history.listen(onParentNavigate);
   }, []);
-
   return <div ref={ref}></div>;
 }
